@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c143a4ee40514ebcb8ec207f965f491d" Name="Diagram1">
+        <EntityTypeShape EntityType="DSADModel.Deti" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSADModel.Gryppa" Width="1.5" PointX="1.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSADModel.krygok" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSADModel.meropriyatie" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSADModel.raspisanie" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSADModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSADModel.user" Width="1.5" PointX="7.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DSADModel.Zanyatiya" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="DSADModel.FK_Deti_Gryppa" ManuallyRouted="false" />
+        <AssociationConnector Association="DSADModel.FK_Zanyatiya_Deti" ManuallyRouted="false" />
+        <AssociationConnector Association="DSADModel.FK_meropriyatie_krygok" ManuallyRouted="false" />
+        <AssociationConnector Association="DSADModel.FK_raspisanie_krygok" ManuallyRouted="false" />
+        <AssociationConnector Association="DSADModel.FK_Zanyatiya_krygok" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
