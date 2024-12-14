@@ -7,6 +7,30 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DetiPage">
     <Grid>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" Margin="10"/>
+        <!-- Определяем две строки в Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Строка для кнопок -->
+            <RowDefinition Height="*"/>
+            <!-- Строка для DataGrid -->
+        </Grid.RowDefinitions>
+
+        <!-- Панель инструментов с кнопками -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Button x:Name="btnAdd" Content="Добавить" Click="btnAdd_Click" Margin="0,0,5,0"/>
+            <Button x:Name="btnEdit" Content="Редактировать" Click="btnEdit_Click" Margin="0,0,5,0"/>
+            <Button x:Name="btnDelete" Content="Удалить" Click="btnDelete_Click"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="1" x:Name="dataGrid" AutoGenerateColumns="False" Margin="10" VerticalAlignment="Top" Height="Auto" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id_dati}" Width="Auto"/>
+                <DataGridTextColumn Header="Surname" Binding="{Binding FName}" Width="*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding LName}" Width="Auto"/>
+                <DataGridTextColumn Header="Parents_phone" Binding="{Binding Phone_roditelya}" Width="*"/>
+                <DataGridTextColumn Header="Group" Binding="{Binding Id_gruppa}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
