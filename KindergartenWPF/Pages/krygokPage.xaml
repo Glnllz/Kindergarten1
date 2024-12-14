@@ -7,8 +7,30 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="krygokPage">
-
     <Grid>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" Margin="10"/>
+        <!-- Определяем две строки в Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Строка для кнопок -->
+            <RowDefinition Height="*"/>
+            <!-- Строка для DataGrid -->
+        </Grid.RowDefinitions>
+
+        <!-- Панель инструментов с кнопками -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Button x:Name="btnAdd" Content="Добавить" Click="btnAdd_Click" Margin="0,0,5,0"/>
+            <Button x:Name="btnEdit" Content="Редактировать" Click="btnEdit_Click" Margin="0,0,5,0"/>
+            <Button x:Name="btnDelete" Content="Удалить" Click="btnDelete_Click"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="1" x:Name="dataGrid" AutoGenerateColumns="False" Margin="10" VerticalAlignment="Top" Height="Auto" SelectionMode="Single">
+            <DataGrid.Columns>
+                <!-- Столбцы для krygok -->
+                <DataGridTextColumn Header="ID" Binding="{Binding Id_krygok}" Width="Auto"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Nazvanie}" Width="*"/>
+                <DataGridTextColumn Header="Количество мест" Binding="{Binding kolvo_mest}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

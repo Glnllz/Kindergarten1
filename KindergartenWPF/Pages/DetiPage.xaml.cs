@@ -1,26 +1,11 @@
 ﻿using Kindergarten1;
 using Kindergarten1.DataBases;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 
 namespace KindergartenWPF.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для DetiPage.xaml
-    /// </summary>
     public partial class DetiPage : Page
     {
         public DetiPage()
@@ -28,6 +13,8 @@ namespace KindergartenWPF.Pages
             InitializeComponent();
             LoadData();
         }
+
+        // Метод для загрузки данных в DataGrid
         private void LoadData()
         {
             var deti = data.GetContext().Deti.AsQueryable();
@@ -37,11 +24,14 @@ namespace KindergartenWPF.Pages
         // Обработчик для кнопки "Добавить"
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            // Создаем новый объект Deti
-            var newDeti = new Deti();
+            // Открываем окно добавления
+            var addWindow = new AddDetiWindow(data.GetContext());
 
-            // Открываем окно для редактирования нового объекта
-            OpenEditWindow(newDeti);
+            // Если окно закрылось с результатом "true", обновляем DataGrid
+            if (addWindow.ShowDialog() == true)
+            {
+                LoadData();
+            }
         }
 
         // Обработчик для кнопки "Редактировать"
@@ -86,14 +76,14 @@ namespace KindergartenWPF.Pages
         private void OpenEditWindow(Deti deti)
         {
             // Создаем окно редактирования (например, EditDetiWindow)
-            //var editWindow = new EditDetiWindow(deti);
+            var editWindow = new EditDetiWindow(deti);
 
-            //// Показываем окно и обновляем DataGrid после закрытия
-            //if (editWindow.ShowDialog() == true)
-            //{
-            //    data.GetContext().SaveChanges();
-            //    LoadData();
-            //}
+            // Показываем окно и обновляем DataGrid после закрытия
+            if (editWindow.ShowDialog() == true)
+            {
+                data.GetContext().SaveChanges();
+                LoadData();
+            }
         }
     }
 }

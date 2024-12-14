@@ -1,0 +1,22 @@
+﻿<Window x:Class="KindergartenWPF.EditDetiWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактирование ребенка" Height="300" Width="400">
+    <Grid>
+        <StackPanel Margin="10">
+            <Label Content="Фамилия"/>
+            <TextBox x:Name="txtFName" Text="{Binding FName}" Margin="0,0,0,10"/>
+
+            <Label Content="Имя"/>
+            <TextBox x:Name="txtLName" Text="{Binding LName}" Margin="0,0,0,10"/>
+
+            <Label Content="Телефон родителей"/>
+            <TextBox x:Name="txtPhone" Text="{Binding Phone_roditelya}" Margin="0,0,0,10"/>
+
+            <Label Content="Группа"/>
+            <TextBox x:Name="txtGroup" Text="{Binding Id_gruppa}" Margin="0,0,0,10"/>
+
+            <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click" Width="100" HorizontalAlignment="Right"/>
+        </StackPanel>
+    </Grid>
+</Window>

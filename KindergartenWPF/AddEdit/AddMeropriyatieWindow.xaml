@@ -1,0 +1,23 @@
+﻿<Window x:Class="KindergartenWPF.AddMeropriyatieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавление мероприятия" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="10">
+            <Label Content="Название"/>
+            <TextBox x:Name="txtNazvanie" Margin="0,0,0,10"/>
+
+            <Label Content="Дата"/>
+            <DatePicker x:Name="dpDate" SelectedDateFormat="Short" Margin="0,0,0,10"/>
+
+            <Label Content="Цена"/>
+            <TextBox x:Name="txtPrice" Margin="0,0,0,10"/>
+
+            <Label Content="ID Кружка"/>
+            <TextBox x:Name="txtIdKrygok" Margin="0,0,0,10"/>
+
+            <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click" Width="100" HorizontalAlignment="Right"/>
+        </StackPanel>
+    </Grid>
+</Window>

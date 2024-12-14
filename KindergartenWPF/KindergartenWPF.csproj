@@ -65,6 +65,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddEdit\AddDetiWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEdit\AddGruppaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEdit\AddKrygokWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEdit\AddMeropriyatieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEdit\EditDetiWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEdit\EditGruppaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEdit\EditKrygokWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEdit\EditMeropriyatieWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -73,6 +105,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddEdit\AddDetiWindow.xaml.cs">
+      <DependentUpon>AddDetiWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEdit\AddGruppaWindow.xaml.cs">
+      <DependentUpon>AddGruppaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEdit\AddKrygokWindow.xaml.cs">
+      <DependentUpon>AddKrygokWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEdit\AddMeropriyatieWindow.xaml.cs">
+      <DependentUpon>AddMeropriyatieWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEdit\EditDetiWindow.xaml.cs">
+      <DependentUpon>EditDetiWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEdit\EditGruppaWindow.xaml.cs">
+      <DependentUpon>EditGruppaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEdit\EditKrygokWindow.xaml.cs">
+      <DependentUpon>EditKrygokWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEdit\EditMeropriyatieWindow.xaml.cs">
+      <DependentUpon>EditMeropriyatieWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
