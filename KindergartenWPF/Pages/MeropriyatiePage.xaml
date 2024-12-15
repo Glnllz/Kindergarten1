@@ -16,11 +16,22 @@
             <!-- Строка для DataGrid -->
         </Grid.RowDefinitions>
 
-        <!-- Панель инструментов с кнопками -->
+        <!-- Панель инструментов с кнопками и ComboBox -->
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
             <Button x:Name="btnAdd" Content="Добавить" Click="btnAdd_Click" Margin="0,0,5,0"/>
             <Button x:Name="btnEdit" Content="Редактировать" Click="btnEdit_Click" Margin="0,0,5,0"/>
-            <Button x:Name="btnDelete" Content="Удалить" Click="btnDelete_Click"/>
+            <Button x:Name="btnDelete" Content="Удалить" Click="btnDelete_Click" Margin="0,0,5,0"/>
+
+            <!-- ComboBox для выбора сортировки -->
+            <ComboBox x:Name="cbSort" SelectionChanged="cbSort_SelectionChanged" Margin="10,0,0,0">
+                <ComboBoxItem Content="Без сортировки" Tag="None"/>
+                <ComboBoxItem Content="По названию (А-Я)" Tag="AZ"/>
+                <ComboBoxItem Content="По названию (Я-А)" Tag="ZA"/>
+                <ComboBoxItem Content="По дате (сначала старые)" Tag="Oldest"/>
+                <ComboBoxItem Content="По дате (сначала новые)" Tag="Newest"/>
+                <ComboBoxItem Content="По цене (возрастание)" Tag="Asc"/>
+                <ComboBoxItem Content="По цене (убывание)" Tag="Desc"/>
+            </ComboBox>
         </StackPanel>
 
         <!-- DataGrid -->

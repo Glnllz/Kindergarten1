@@ -7,8 +7,82 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RaspisaniePage">
-
     <Grid>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" Margin="10"/>
+        <!-- Определяем две строки в Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Строка для кнопок и фильтров -->
+            <RowDefinition Height="*"/>
+            <!-- Строка для DataGrid -->
+        </Grid.RowDefinitions>
+
+        <!-- Панель инструментов с кнопками, ComboBox для фильтрации и сортировки -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <!-- Кнопки управления -->
+            <Button x:Name="btnAdd" Content="Добавить" Click="btnAdd_Click" Margin="0,0,5,0"/>
+            <Button x:Name="btnEdit" Content="Редактировать" Click="btnEdit_Click" Margin="0,0,5,0"/>
+            <Button x:Name="btnDelete" Content="Удалить" Click="btnDelete_Click" Margin="0,0,5,0"/>
+
+            <!-- ComboBox для выбора поля фильтрации -->
+            <ComboBox x:Name="cbFilterField" Width="120" Margin="10,0,0,0" SelectionChanged="cbFilterField_SelectionChanged">
+                <ComboBoxItem Content="День" Tag="Day"/>
+                <ComboBoxItem Content="Время" Tag="Time"/>
+                <ComboBoxItem Content="ID Кружка" Tag="Id_krygok"/>
+            </ComboBox>
+
+            <!-- TextBox для ввода значения фильтра -->
+            <TextBox x:Name="tbFilterValue" Width="150" Margin="10,0,0,0" TextChanged="tbFilterValue_TextChanged" 
+                     VerticalContentAlignment="Center">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Foreground" Value="Black"/>
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="Padding" Value="2"/>
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter Property="Foreground" Value="Gray"/>
+                                <Setter Property="Background" Value="#F0F0F0"/>
+                                <Setter Property="Padding" Value="2,10,2,2"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+                <TextBox.Template>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <TextBlock x:Name="PlaceholderTextBlock" Text="Значение фильтра" 
+                                       Foreground="Gray" Margin="5,0,0,0" 
+                                       Visibility="Collapsed" IsHitTestVisible="False"/>
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PlaceholderTextBlock" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </TextBox.Template>
+            </TextBox>
+
+            <!-- ComboBox для выбора сортировки -->
+            <ComboBox x:Name="cbSort" SelectionChanged="cbSort_SelectionChanged" Margin="10,0,0,0">
+                <ComboBoxItem Content="Без сортировки" Tag="None"/>
+                <ComboBoxItem Content="По дню (А-Я)" Tag="AZ"/>
+                <ComboBoxItem Content="По дню (Я-А)" Tag="ZA"/>
+                <ComboBoxItem Content="По времени (сначала ранние)" Tag="Early"/>
+                <ComboBoxItem Content="По времени (сначала поздние)" Tag="Late"/>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="1" x:Name="dataGrid" AutoGenerateColumns="False" Margin="10" VerticalAlignment="Top" Height="Auto" SelectionMode="Single">
+            <DataGrid.Columns>
+                <!-- Столбцы для raspisanie -->
+                <DataGridTextColumn Header="ID" Binding="{Binding Id_rasp}" Width="Auto"/>
+                <DataGridTextColumn Header="День" Binding="{Binding Day}" Width="*"/>
+                <DataGridTextColumn Header="Время" Binding="{Binding Time}" Width="*"/>
+                <DataGridTextColumn Header="ID Кружка" Binding="{Binding Id_krygok}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

@@ -3,7 +3,6 @@ using Kindergarten1.DataBases;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System;
 
 namespace KindergartenWPF.Pages
 {
@@ -84,6 +83,34 @@ namespace KindergartenWPF.Pages
             {
                 data.GetContext().SaveChanges();
                 LoadData();
+            }
+        }
+
+        // Обработчик для выбора сортировки в ComboBox
+        private void cbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = cbSort.SelectedItem as ComboBoxItem;
+            if (selectedItem == null) return;
+
+            var sortType = selectedItem.Tag.ToString();
+
+            switch (sortType)
+            {
+                case "None":
+                    LoadData(); // Без сортировки
+                    break;
+                case "AZ":
+                    dataGrid.ItemsSource = data.GetContext().Gryppa.OrderBy(g => g.Nazvanie).ToList(); // По названию (А-Я)
+                    break;
+                case "ZA":
+                    dataGrid.ItemsSource = data.GetContext().Gryppa.OrderByDescending(g => g.Nazvanie).ToList(); // По названию (Я-А)
+                    break;
+                case "Asc":
+                    dataGrid.ItemsSource = data.GetContext().Gryppa.OrderBy(g => g.kolvo).ToList(); // По количеству детей (возрастание)
+                    break;
+                case "Desc":
+                    dataGrid.ItemsSource = data.GetContext().Gryppa.OrderByDescending(g => g.kolvo).ToList(); // По количеству детей (убывание)
+                    break;
             }
         }
     }

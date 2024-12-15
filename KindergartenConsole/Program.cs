@@ -38,9 +38,9 @@ namespace KindergartenConsoleApp
 
             // Пример: Добавление нового ребенка
             Console.WriteLine("\nДобавление нового ребенка:");
-            Console.Write("Введите имя ребенка: ");
-            string firstName = Console.ReadLine();
             Console.Write("Введите фамилию ребенка: ");
+            string firstName = Console.ReadLine();
+            Console.Write("Введите имя ребенка: ");
             string lastName = Console.ReadLine();
             Console.Write("Введите телефон родителя: ");
             string phone = Console.ReadLine();
@@ -85,9 +85,9 @@ namespace KindergartenConsoleApp
             var childToUpdate = dbContext.Deti.FirstOrDefault(c => c.Id_dati == childIdToUpdate);
             if (childToUpdate != null)
             {
-                Console.Write("Введите новое имя ребенка: ");
-                string newFirstName = Console.ReadLine();
                 Console.Write("Введите новую фамилию ребенка: ");
+                string newFirstName = Console.ReadLine();
+                Console.Write("Введите новое имя ребенка: ");
                 string newLastName = Console.ReadLine();
                 Console.Write("Введите новый телефон родителя: ");
                 string newPhone = Console.ReadLine();

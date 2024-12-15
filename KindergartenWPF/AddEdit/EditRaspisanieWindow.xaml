@@ -1,0 +1,20 @@
+﻿<Window x:Class="KindergartenWPF.EditRaspisanieWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактирование расписания" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="10">
+            <Label Content="День"/>
+            <TextBox x:Name="txtDay" Text="{Binding Day}" Margin="0,0,0,10"/>
+
+            <Label Content="Время"/>
+            <TextBox x:Name="txtTime" Text="{Binding Time, StringFormat=HH:mm:ss}" Margin="0,0,0,10"/>
+
+            <Label Content="ID Кружка"/>
+            <TextBox x:Name="txtIdKrygok" Text="{Binding Id_krygok}" Margin="0,0,0,10"/>
+
+            <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click" Width="100" HorizontalAlignment="Right"/>
+        </StackPanel>
+    </Grid>
+</Window>

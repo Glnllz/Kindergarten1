@@ -77,5 +77,33 @@ namespace KindergartenWPF.Pages
                 LoadData();
             }
         }
+
+        // Обработчик для выбора сортировки в ComboBox
+        private void cbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = cbSort.SelectedItem as ComboBoxItem;
+            if (selectedItem == null) return;
+
+            var sortType = selectedItem.Tag.ToString();
+
+            switch (sortType)
+            {
+                case "None":
+                    LoadData(); // Без сортировки
+                    break;
+                case "AZ":
+                    dataGrid.ItemsSource = data.GetContext().krygok.OrderBy(k => k.Nazvanie).ToList(); // По названию (А-Я)
+                    break;
+                case "ZA":
+                    dataGrid.ItemsSource = data.GetContext().krygok.OrderByDescending(k => k.Nazvanie).ToList(); // По названию (Я-А)
+                    break;
+                case "Asc":
+                    dataGrid.ItemsSource = data.GetContext().krygok.OrderBy(k => k.kolvo_mest).ToList(); // По количеству мест (возрастание)
+                    break;
+                case "Desc":
+                    dataGrid.ItemsSource = data.GetContext().krygok.OrderByDescending(k => k.kolvo_mest).ToList(); // По количеству мест (убывание)
+                    break;
+            }
+        }
     }
 }

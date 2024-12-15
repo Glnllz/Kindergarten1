@@ -77,5 +77,39 @@ namespace KindergartenWPF.Pages
                 LoadData();
             }
         }
+
+        // Обработчик для выбора сортировки в ComboBox
+        private void cbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedItem = cbSort.SelectedItem as ComboBoxItem;
+            if (selectedItem == null) return;
+
+            var sortType = selectedItem.Tag.ToString();
+
+            switch (sortType)
+            {
+                case "None":
+                    LoadData(); // Без сортировки
+                    break;
+                case "AZ":
+                    dataGrid.ItemsSource = data.GetContext().meropriyatie.OrderBy(m => m.Nazvanie).ToList(); // По названию (А-Я)
+                    break;
+                case "ZA":
+                    dataGrid.ItemsSource = data.GetContext().meropriyatie.OrderByDescending(m => m.Nazvanie).ToList(); // По названию (Я-А)
+                    break;
+                case "Oldest":
+                    dataGrid.ItemsSource = data.GetContext().meropriyatie.OrderBy(m => m.Date).ToList(); // По дате (сначала старые)
+                    break;
+                case "Newest":
+                    dataGrid.ItemsSource = data.GetContext().meropriyatie.OrderByDescending(m => m.Date).ToList(); // По дате (сначала новые)
+                    break;
+                case "Asc":
+                    dataGrid.ItemsSource = data.GetContext().meropriyatie.OrderBy(m => m.price).ToList(); // По цене (возрастание)
+                    break;
+                case "Desc":
+                    dataGrid.ItemsSource = data.GetContext().meropriyatie.OrderByDescending(m => m.price).ToList(); // По цене (убывание)
+                    break;
+            }
+        }
     }
 }

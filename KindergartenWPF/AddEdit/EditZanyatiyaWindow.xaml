@@ -1,0 +1,17 @@
+﻿<Window x:Class="KindergartenWPF.EditZanyatiyaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактирование занятия" Height="300" Width="400"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <StackPanel Margin="10">
+            <Label Content="ID Ребенка"/>
+            <TextBox x:Name="txtIdDeti" Text="{Binding Id_deti}" Margin="0,0,0,10"/>
+
+            <Label Content="ID Кружка"/>
+            <TextBox x:Name="txtIdKrygok" Text="{Binding Id_krygok}" Margin="0,0,0,10"/>
+
+            <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click" Width="100" HorizontalAlignment="Right"/>
+        </StackPanel>
+    </Grid>
+</Window>

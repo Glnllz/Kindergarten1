@@ -7,8 +7,39 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ZanyatiyaPage">
-
     <Grid>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" Margin="10"/>
+        <!-- Определяем две строки в Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Строка для кнопок -->
+            <RowDefinition Height="*"/>
+            <!-- Строка для DataGrid -->
+        </Grid.RowDefinitions>
+
+        <!-- Панель инструментов с кнопками и ComboBox -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Button x:Name="btnAdd" Content="Добавить" Click="btnAdd_Click" Margin="0,0,5,0"/>
+            <Button x:Name="btnEdit" Content="Редактировать" Click="btnEdit_Click" Margin="0,0,5,0"/>
+            <Button x:Name="btnDelete" Content="Удалить" Click="btnDelete_Click" Margin="0,0,5,0"/>
+
+            <!-- ComboBox для выбора сортировки -->
+            <ComboBox x:Name="cbSort" SelectionChanged="cbSort_SelectionChanged" Margin="10,0,0,0">
+                <ComboBoxItem Content="Без сортировки" Tag="None"/>
+                <ComboBoxItem Content="По ID Ребенка (возрастание)" Tag="AscDeti"/>
+                <ComboBoxItem Content="По ID Ребенка (убывание)" Tag="DescDeti"/>
+                <ComboBoxItem Content="По ID Кружка (возрастание)" Tag="AscKrygok"/>
+                <ComboBoxItem Content="По ID Кружка (убывание)" Tag="DescKrygok"/>
+            </ComboBox>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <DataGrid Grid.Row="1" x:Name="dataGrid" AutoGenerateColumns="False" Margin="10" VerticalAlignment="Top" Height="Auto" SelectionMode="Single">
+            <DataGrid.Columns>
+                <!-- Столбцы для Zanyatiya -->
+                <DataGridTextColumn Header="ID" Binding="{Binding Id_zan}" Width="Auto"/>
+                <DataGridTextColumn Header="ID Ребенка" Binding="{Binding Id_deti}" Width="*"/>
+                <DataGridTextColumn Header="ID Кружка" Binding="{Binding Id_krygok}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
